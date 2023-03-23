@@ -44,7 +44,7 @@ The issue comes. How to configure what MAC the computer will use?
  
     1) Each computer may have many NIC.
     
-    ![image](https://user-images.githubusercontent.com/75050655/227242919-5a8b84c0-83c0-420b-a488-c602d647c7db.png)
+![image](https://user-images.githubusercontent.com/75050655/227242919-5a8b84c0-83c0-420b-a488-c602d647c7db.png)
 
     
  
