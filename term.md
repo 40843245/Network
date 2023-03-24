@@ -12,4 +12,5 @@
 11. USB hub (n.) USB集線器
 12. DHCP (Dynamic Host Configuration Protocol)
 13. rogue (n.) 惡棍
-14. 
+14. SSH Protocol (abbr.) (stands for Secure Shell Protocol)
+15. 
