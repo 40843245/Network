@@ -11,3 +11,9 @@
 where
 
 <target_name> : target name that will be ping.
+
+## Ref
+
+https://blog.gtwang.org/linux/windows-linux-ping-command-tutorial/#google_vignette
+
+https://en.wikipedia.org/wiki/Ping_(networking_utility)
