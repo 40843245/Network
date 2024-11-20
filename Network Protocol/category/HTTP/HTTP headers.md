@@ -15,6 +15,8 @@ It must contain at least 7 key-value pairs. Shown as follows.
 ## `content-type`
 available content type includes current valid media type which is ruled by IANA (mentioned in this article -- valid media types[^1])
 
+or see [media type.md(my notes at GitHub)](https://github.com/40843245/Network/blob/main/media/media%20type.md)
+
 ## `content-encoding`
 ### structure
 Use RE (regular expression), it can be represented as follows.
