@@ -23,6 +23,8 @@ About explanation of `host`, see [`Host`](https://developer.mozilla.org/en-US/do
 
 About explanation of `host`, see [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
 
+## see also
+To learn more about `current valid media type`, see [meida type.md (my notes at GitHub)](https://github.com/40843245/Network/blob/main/media/media%20type.md) or see this article -- valid media types[^1]
 ## further reading
 About detailed explanation of `user-agent` and `product`, see [HTTP Headers – User-Agent](https://www.geeksforgeeks.org/http-headers-user-agent/)
 
