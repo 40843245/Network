@@ -1,5 +1,5 @@
 # HTTP request methods
-
+## category
 [`GET`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET)
 
 The `GET` method requests a representation of the specified resource. Requests using `GET` should only retrieve data and should not contain a request [content](https://developer.mozilla.org/en-US/docs/Glossary/HTTP_Content).
@@ -35,3 +35,17 @@ The `TRACE` method performs a message loop-back test along the path to the targe
 [`PATCH`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH)
 
 The `PATCH` method applies partial modifications to a resource.
+
+## comparison table
+
+| Method | Safe | Idempotent | Cacheable |
+| --- | --- | --- | --- |
+| [`GET`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) | Yes | Yes | Yes |
+| [`HEAD`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) | Yes | Yes | Yes |
+| [`OPTIONS`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS) | Yes | Yes | No |
+| [`TRACE`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE) | Yes | Yes | No |
+| [`PUT`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT) | No | Yes | No |
+| [`DELETE`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE) | No | Yes | No |
+| [`POST`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) | No | No | Conditional\* |
+| [`PATCH`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH) | No | No | Conditional\* |
+| [`CONNECT`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT) | No | No | No |
