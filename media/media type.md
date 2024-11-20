@@ -20,17 +20,24 @@ With RE (regular expression), MIME can be represented as
 {MIME} := {MIME_type} "/" {tree} ("." {MIME_subtype})? ("+" {suffix})? (";" {parameter})? ;
 ```
 
-where {type} can be one of followings.
+where {MIME_type} can be one of followings.
 
 ```
-{type} := ({application}|{audio}|{image}|{model}|{multipart}|{text})
+{MIME_type} := ({application}|{audio}|{image}|{model}|{multipart}|{text})
+
+{application} := "application"
+{audio} := "audio"
+{image} := "image"
+{model} := "model"
+{multipart} := "multipart"
+{text} := "text"
 ```
 
 As an example, an HTML file might be designated `text/html; charset=UTF-8`. Here, `text` is the type, `html` is the subtype, and `charset=UTF-8` is an optional parameter indicating the character encoding. 
 
 See media type (Wiki)[^2] 
 
-### Common examples of {type} "/" {tree}
+### Common examples of ({MIME_type} "/" {tree})
 
 \[[edit](https://en.wikipedia.org/w/index.php?title=Media_type&action=edit&section=10 "Edit section: Common examples")\]
 
@@ -68,6 +75,24 @@ From the IANA registry:<sup id="cite_ref-iana_1-4" class="reference"><a href="ht
 - `text/html`
 - `text/javascript`(.js)
 - `text/xml`
+
+### details of common pattern
++ `multipart/form-data` indicates that a request can contain a Body that has more different type of data for sending. 
+
+For example, in gmail, to send an json string and an image. One has to set the content type as `multipart/form-data`. 
+
+### notice of common pattern
++ `application/json` indicates that a request can contain a Body with a json string.
+
+notice that, although a json string a kind of text. DON'T use `text/json`.
+
++ `application/sql` indicates that a request can contain a Body with a sql command.
+  
+notice that, although a sql command can be represented as text. DON'T use `text/sql`.
+
+### difference of between pattern
+> [!NOTICE]
+> [What is the difference between `application/xml` and `text/xml`?](https://stackoverflow.com/questions/4832357/whats-the-difference-between-text-xml-vs-application-xml-for-webservice-respons)
 
 ### Common examples of (; {parameter})?
 
