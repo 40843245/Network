@@ -12,10 +12,10 @@ It must contain at least 7 key-value pairs. Shown as follows.
 6. `accept-encoding`: indicates how the client recognizes and understands the request (issues like what the encoding of the request).
 7. `connection`: indicats the state of connection. (For example, when the connection is connected successfully and has not been closed yet, the connection is `keep-alive`.)
 
-## content type
+## `content-type`
 available content type includes current valid media type which is ruled by IANA (mentioned in this article -- valid media types[^1])
 
-## content encoding
+## `content-encoding`
 ### structure
 Use RE (regular expression), it can be represented as follows.
 
@@ -50,6 +50,57 @@ A format using the [Brotli](https://developer.mozilla.org/en-US/docs/Glossary/Br
 
 A format using the [Zstandard](https://developer.mozilla.org/en-US/docs/Glossary/Zstandard_compression) algorithm structure (defined in [RFC 8878](https://datatracker.ietf.org/doc/html/rfc8878)).
 
+## `host`
+### structure
+
+```
+{host}: {DNS}:{port}
+```
+
+where 
+
+`DNS` stands for `Domain Name Server`
+
+and 
+
+`port` is port number.
+
+## `user-agent`
+With RE (regular expression), it can be presented as followings.
+
+```
+{user-Agent} := {product} / {product-version} {comment}
+```
+
+### examples of `user-agent`
+
+```
+user-agent := Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>
+```
+
+Here, it indicates that user-agent is a browser `Mozilla` with version 5.0.
+
+## `accept`
+### structure
+
+With RE (regular expression), it can be represented as followings. 
+
+```
+{accept} := ({MIME_type}/{MIME_subtype}) | ({MIME_type}/{any}) | ({any}/{any})
+```
+
+where 
+
+```
+{any} := "*"
+```
+
+that indicates it can accept any type.
+
+and 
+
+{MIME_type}, {MIME_subtype} is mentioned as above `content-type` section.
+
 ## source
 The above figure is from screenshot of `POSTMAN`. 
 
@@ -59,6 +110,7 @@ About explanation of `host`, see [`Host`](https://developer.mozilla.org/en-US/do
 About explanation of `accept`, see [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
 
 About explanation of `content-encoding`, [`content-encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+
 ## see also
 To learn more about `current valid media type`, see [meida type.md (my notes at GitHub)](https://github.com/40843245/Network/blob/main/media/media%20type.md) or see this article -- valid media types[^1]
 
