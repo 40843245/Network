@@ -12,6 +12,9 @@ It must contain at least 7 key-value pairs. Shown as follows.
 6. `accept-encoding`: indicates how the client recognizes and understands the request (issues like what the encoding of the request).
 7. `connection`: indicats the state of connection. (For example, when the connection is connected successfully and has not been closed yet, the connection is `keep-alive`.)
 
+## content type
+available content type includes current valid media type which is ruled by IANA (mentioned in this article -- valid media types[^1])
+
 ## source
 The above figure is from screenshot of `POSTMAN`. 
 
@@ -24,3 +27,5 @@ About explanation of `host`, see [`Accept`](https://developer.mozilla.org/en-US/
 About detailed explanation of `user-agent` and `product`, see [HTTP Headers – User-Agent](https://www.geeksforgeeks.org/http-headers-user-agent/)
 
 About all `content-type` in request header, see [`content-type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
+
+[^1]: [valid media types (last update in 2024/11/05)](https://www.iana.org/assignments/media-types/media-types.xhtml)
