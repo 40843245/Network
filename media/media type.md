@@ -17,7 +17,7 @@ current valid media type[^1] defined in IANA can be categorized into several mai
 With RE (regular expression), MIME can be represented as
 
 ```
-{mime-type} := {type} "/" {tree} ("." {subtype})? ("+" {suffix})? (";" {parameter})? ;
+{MIME} := {MIME_type} "/" {tree} ("." {MIME_subtype})? ("+" {suffix})? (";" {parameter})? ;
 ```
 
 where {type} can be one of followings.
