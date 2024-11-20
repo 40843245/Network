@@ -51,3 +51,6 @@ The `PATCH` method applies partial modifications to a resource.
 | [`CONNECT`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/CONNECT) | No | No | No |
 
 \* `POST` and `PATCH` are cacheable when responses explicitly include [freshness](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) information and a matching [`Content-Location`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Location) header.
+
+## reference
+See [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
