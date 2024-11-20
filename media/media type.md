@@ -91,10 +91,67 @@ notice that, although a json string a kind of text. DON'T use `text/json`.
 notice that, although a sql command can be represented as text. DON'T use `text/sql`.
 
 ### difference of between pattern
-> [!NOTICE]
+> [!NOTE]
 > [What is the difference between `application/xml` and `text/xml`?](https://stackoverflow.com/questions/4832357/whats-the-difference-between-text-xml-vs-application-xml-for-webservice-respons)
 
-### Common examples of (; {parameter})?
+### (extra bonus) question about `content-type`
+
+Thank's to all who ask this question and answer this question [application/x-www-form-urlencoded or multipart/form-data? provides lots of details about content-type in request.]
+(https://stackoverflow.com/questions/4007969/application-x-www-form-urlencoded-or-multipart-form-data). 
+
+It provides lots of details about `content-type`.
+
+1. max asks a question When to use `application/x-www-form-urlencoded` and `multipart/form-data`?
+
+According to Matt Bridges's answer,
+
+Summary, if you have binary (non-alphanumeric) data (or a significantly sized payload) to transmit, use `multipart/form-data`. Otherwise, use `application/x-www-form-urlencoded`.
+
+<img width="546" alt="image" src="https://github.com/user-attachments/assets/2e31e215-df41-446d-a493-4160e79e0767">
+
+According to EML's answer,
+
+**READ AT LEAST THE FIRST PARA HERE!**
+
+I know this is 3 years too late, but Matt's (accepted) answer is incomplete and will eventually get you into trouble. The key here is that, if you choose to use `multipart/form-data`, the boundary must _not_ appear in the file data that the server eventually receives.
+
+This is not a problem for `application/x-www-form-urlencoded`, because there is no boundary. `x-www-form-urlencoded` can also always handle binary data, by the simple expedient of turning one arbitrary byte into three `7BIT` bytes. Inefficient, but it works (and note that the comment about not being able to send filenames as well as binary data is incorrect; you just send it as another key/value pair).
+
+The problem with `multipart/form-data` is that the boundary separator must not be present in the file data (see [RFC 2388](https://www.rfc-editor.org/rfc/rfc2388#section-5.2); section 5.2 also includes a rather lame excuse for not having a proper aggregate MIME type that avoids this problem).
+
+So, at first sight, `multipart/form-data` is of no value whatsoever in _any_ file upload, binary or otherwise. If you don't choose your boundary correctly, then you _will_ eventually have a problem, whether you're sending plain text or raw binary - the server will find a boundary in the wrong place, and your file will be truncated, or the POST will fail.
+
+The key is to choose an encoding and a boundary such that your selected boundary characters cannot appear in the encoded output. One simple solution is to use `base64` (do _not_ use raw binary). In [base64](http://en.wikipedia.org/wiki/Base64) 3 arbitrary bytes are encoded into four 7-bit characters, where the output character set is `[A-Za-z0-9+/=]` (i.e. alphanumerics, '+', '/' or '='). `=` is a special case, and may only appear at the end of the encoded output, as a single `=` or a double `==`. Now, choose your boundary as a 7-bit ASCII string which cannot appear in `base64` output. Many choices you see on the net fail this test - the MDN forms [docs](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Sending_forms_through_JavaScript), for example, use "blob" as a boundary when sending binary data - not good. However, something like "!blob!" will never appear in `base64` output.
+
+<img width="548" alt="image" src="https://github.com/user-attachments/assets/8a4660a8-993f-4949-88de-6068cfbc7c7d">
+
+<img width="509" alt="image" src="https://github.com/user-attachments/assets/862a92ff-db9c-4abe-9572-c0ac9dfd486e">
+
+> P.S.
+>
+> That's the reason why it uses `base64` to handle the body of a request in ron's project demo.
+
+Example of sending an image and other data (from manuel aldana's answer)
+
+```
+POST /images
+Content-type: multipart/mixed; boundary="xxxx" 
+... multipart data
+
+201 Created
+Location: http://imageserver.org/../foo.jpg
+```
+
+
+2. Pacerier asks a question Does `application/x-www-form-urlencoded` have a length limit, or is it unlimited?
+
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/cba30537-c236-4183-ba22-855a3b6db20a">
+
+According to Matt Bridges's answer,
+
+The limit is enforced by the server receiving the POST request. 
+
+### common pattern of (; {parameter})?
 
 As an example, an HTML file might be designated `text/html; charset=UTF-8`. Here, `text` is the type, `html` is the subtype, and `charset=UTF-8` is an optional parameter indicating the character encoding. 
 
