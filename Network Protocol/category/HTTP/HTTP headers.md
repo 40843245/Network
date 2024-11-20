@@ -103,6 +103,24 @@ and
 
 {MIME_type}, {MIME_subtype} is mentioned as above `content-type` section.
 
+## `accept-encoding`
+### intro
+`accept-encoding` request and response header indicates the content encoding (usually a compression algorithm) that the sender can understand.
+
+### structure 
+See above `content-encoding` section.
+
+## `connection`
+### structure
+The connection status can be one of following.
+
++ `keep-alive`
++ `close`
+
+
++ `keep-alive`: the word is explanatory. When the connects successfully and the connection has not been closed yet, it's in `keep-alive` state.
++ `close`: the word is also explanatory. When the connection has been closed, it's in `close` state.
+  
 ## source
 The above figure is from screenshot of `POSTMAN`. 
 
@@ -111,7 +129,12 @@ About explanation of `host`, see [`Host`](https://developer.mozilla.org/en-US/do
 
 About explanation of `accept`, see [`Accept`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
 
-About explanation of `content-encoding`, [`content-encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+About explanation of `content-encoding`, see [`content-encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+
+About explanation of `accept-encoding`, see [`accept-encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+
+About explanation of `connection`, see [`connection`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection)
+
 
 ## see also
 To learn more about `current valid media type`, see [meida type.md (my notes at GitHub)](https://github.com/40843245/Network/blob/main/media/media%20type.md) or see this article -- valid media types[^1]
