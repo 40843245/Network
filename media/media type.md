@@ -32,8 +32,6 @@ See media type (Wiki)[^2]
 
 From the IANA registry:<sup id="cite_ref-iana_1-4" class="reference"><a href="https://en.wikipedia.org/wiki/Media_type#cite_note-iana-1"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></a></sup>
 
-.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}
-
 - `application/json`
 - `application/ld+json` ([JSON-LD](https://en.wikipedia.org/wiki/JSON-LD "JSON-LD"))
 - `application/msword` (.doc)
