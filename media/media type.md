@@ -14,19 +14,23 @@ current valid media type[^1] defined in IANA can be categorized into several mai
 - [video](https://www.iana.org/assignments/media-types/media-types.xhtml#video)
 
 ## structure 
-By regular expression, MIME can be represented as
+With RE (regular expression), MIME can be represented as
 
 ```
-mime-type = type "/" [tree "."] subtype ["+" suffix]* [";" parameter];
+{mime-type} := {type} "/" {tree} ("." {subtype})? ("+" {suffix})? (";" {parameter})? ;
 ```
 
-As an example, an HTML file might be designated `text/html; charset=UTF-8`. In this example, `text` is the type, `html` is the subtype, and `charset=UTF-8` is an optional parameter indicating the character encoding. 
+where {type} can be one of followings.
+
+```
+{type} := ({application}|{audio}|{image}|{model}|{multipart}|{text})
+```
+
+As an example, an HTML file might be designated `text/html; charset=UTF-8`. Here, `text` is the type, `html` is the subtype, and `charset=UTF-8` is an optional parameter indicating the character encoding. 
 
 See media type (Wiki)[^2] 
 
-## common examples
-
-### Common examples
+### Common examples of {type} "/" {tree}
 
 \[[edit](https://en.wikipedia.org/w/index.php?title=Media_type&action=edit&section=10 "Edit section: Common examples")\]
 
@@ -64,6 +68,10 @@ From the IANA registry:<sup id="cite_ref-iana_1-4" class="reference"><a href="ht
 - `text/html`
 - `text/javascript`(.js)
 - `text/xml`
+
+### Common examples of (; {parameter})?
+
+As an example, an HTML file might be designated `text/html; charset=UTF-8`. Here, `text` is the type, `html` is the subtype, and `charset=UTF-8` is an optional parameter indicating the character encoding. 
 
 ## see also
 [content type of HTTP header (my notes at GitHub)](https://github.com/40843245/Network/blob/main/Network%20Protocol/category/HTTP/HTTP%20headers.md#content-type)
